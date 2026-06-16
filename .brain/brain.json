@@ -16,12 +16,14 @@
   "features": [
     "Landing Page with Hero, Services, Routes, Pricing, FAQs, and Contact",
     "Dynamic routing for individual route pages",
-    "High-resolution AI-generated assets for cars and locations"
+    "High-resolution AI-generated assets for cars and locations",
+    "Dynamic randomized social comments section with timeline simulation"
   ],
   "knowledge_items": { 
     "patterns": [
       "Use mix-blend-multiply with CSS brightness/contrast to achieve transparent backgrounds for generated images",
-      "Use CSS clamp() and whitespace-nowrap for responsive, non-wrapping text on small mobile screens"
+      "Use CSS clamp() and whitespace-nowrap for responsive, non-wrapping text on small mobile screens",
+      "Extract sections into Client Components for localized client-side state (e.g. comments) without making parent Server Components client-side"
     ], 
     "gotchas": [
       "AI-generated car images often include padding and off-white backgrounds; use scale and contrast tweaks to fix"
