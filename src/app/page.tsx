@@ -183,7 +183,7 @@ export default function HomePage() {
           </div>
           <div className="flex snap-x snap-mandatory overflow-x-auto px-4 pb-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0 sm:pb-0 lg:grid-cols-4">
             {routes.map((route, index) => (
-              <a className="group relative mr-4 h-[240px] w-[280px] shrink-0 snap-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-md sm:mr-0 sm:h-[220px] sm:w-auto" href={`/${route.slug}`} key={route.slug}>
+              <a className="group relative mr-4 h-[240px] w-[280px] shrink-0 snap-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-md sm:mr-0 sm:h-[220px] sm:w-auto" href={siteConfig.zaloHref} target="_blank" rel="noopener noreferrer" key={route.slug}>
                 <Image src={routeImages[index]} alt={route.name} fill sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 280px" className="object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-navy-950)] via-[var(--color-navy-950)]/80 to-transparent p-5 pt-20 text-center text-white">
                   <h3 className="font-heading text-xl font-black">{route.name.replace(" - ", " ⇄ ")}</h3>

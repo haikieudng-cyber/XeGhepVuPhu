@@ -33,13 +33,13 @@ npm run build
 
 ## Cấu hình domain
 
-Khi có domain thật, set:
+Khi có domain thật, set (trong file `.env`):
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://domain-that.example
+NEXT_PUBLIC_SITE_URL=https://www.xeghepvuphu.com
 ```
 
-Nếu chưa set, code dùng fallback `https://example.com` cho sitemap/canonical.
+Nếu chưa set, code dùng fallback `https://www.xeghepvuphu.com` cho sitemap/canonical.
 
 ## Vị trí sửa nội dung
 

@@ -10,5 +10,5 @@ export const siteConfig = {
   location: "Thái Bình, Việt Nam",
   serviceArea: ["Thái Bình", "Hà Nội", "Nội Bài", "Hải Phòng", "Cát Bà"],
   slogan: "Gọi là có xe - Đi là thích ngay!",
-  baseUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://example.com",
+  baseUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.xeghepvuphu.com",
 } as const;
