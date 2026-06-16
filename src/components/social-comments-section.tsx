@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CheckCircle2, ThumbsUp, UserRound } from "lucide-react";
 import { socialComments } from "@/data/comments";
 import { siteConfig } from "@/data/site";
@@ -20,11 +20,55 @@ function getAvatarColor(name: string) {
   return avatarColors[Math.abs(hash) % avatarColors.length];
 }
 
+function formatTimeAgo(minutes: number) {
+  if (minutes < 60) return `${minutes} phút trước`;
+  if (minutes < 24 * 60) return `${Math.floor(minutes / 60)} giờ trước`;
+  return `${Math.floor(minutes / (24 * 60))} ngày trước`;
+}
+
 export function SocialCommentsSection() {
   const [visibleCount, setVisibleCount] = useState(5);
+  const [shuffledComments, setShuffledComments] = useState<typeof socialComments>([]);
 
-  const visibleComments = socialComments.slice(0, visibleCount);
-  const hasMore = visibleCount < socialComments.length;
+  useEffect(() => {
+    // 1. Shuffle comments randomly
+    const shuffled = [...socialComments].sort(() => Math.random() - 0.5);
+    
+    // 2. Generate dynamic times spread over minutes, hours, and days
+    let currentMinutesAgo = Math.floor(Math.random() * 45) + 2; // 2 to 46 mins ago
+    
+    const dynamicComments = shuffled.map((c) => {
+      const timeStr = formatTimeAgo(currentMinutesAgo);
+      
+      let newReplies = c.replies;
+      if (newReplies) {
+        newReplies = newReplies.map((r) => {
+           // Reply happens AFTER the comment, so it is MORE RECENT (fewer minutes ago)
+           // But ensure it's at least 1 min ago and not negative
+           const replyMinutesAgo = Math.max(1, currentMinutesAgo - Math.floor(Math.random() * Math.min(10, currentMinutesAgo)) - 1);
+           return { ...r, time: formatTimeAgo(replyMinutesAgo) };
+        });
+      }
+      
+      // The next comment downwards should be significantly older (2 hours to 2.5 days older)
+      currentMinutesAgo += Math.floor(Math.random() * 3600) + 120;
+      
+      return { ...c, time: timeStr, replies: newReplies };
+    });
+    
+    setShuffledComments(dynamicComments);
+  }, []);
+
+  if (shuffledComments.length === 0) {
+    return (
+      <div className="border-y border-slate-200 sm:border bg-white shadow-sm sm:rounded-2xl overflow-hidden animate-pulse">
+        <div className="h-[400px] bg-slate-50/50"></div>
+      </div>
+    );
+  }
+
+  const visibleComments = shuffledComments.slice(0, visibleCount);
+  const hasMore = visibleCount < shuffledComments.length;
 
   return (
     <div className="border-y border-slate-200 sm:border bg-white shadow-sm sm:rounded-2xl overflow-hidden">
