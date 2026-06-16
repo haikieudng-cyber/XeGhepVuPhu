@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vũ Phú JP - Xe ghép, xe tiện chuyến</title>
+  <meta name="description" content="Vũ Phú JP - Dịch vụ xe ghép, xe tiện chuyến an toàn, uy tín, chất lượng. Gọi là có xe." />
+  <style>
+    :root{
+      --navy:#071f42;
+      --navy-2:#0b2d56;
+      --gold:#c48b28;
+      --gold-2:#e4b861;
+      --gold-soft:#fff5df;
+      --cream:#fbf7ee;
+      --bg:#f6f7f8;
+      --text:#263248;
+      --muted:#667187;
+      --line:#e7e9ed;
+      --card:#fff;
+      --radius:18px;
+      --radius-lg:26px;
+      --shadow:0 18px 45px rgba(11,35,70,.10);
+      --shadow-soft:0 10px 30px rgba(11,35,70,.06);
+      --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(circle at 8% 2%,rgba(196,139,40,.14),transparent 280px),
+        radial-gradient(circle at 92% 8%,rgba(7,31,66,.07),transparent 360px),
+        linear-gradient(180deg,#eef5ee,#f8f9f7);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .page{
+      width:min(1060px,100%);
+      margin:0 auto;
+      background:#fff;
+      box-shadow:0 28px 80px rgba(8,26,54,.12);
+      overflow:hidden;
+    }
+    @media(min-width:1120px){.page{margin:0 auto;border-radius:0 0 22px 22px}}
+    .container{width:min(980px,calc(100% - 48px));margin:0 auto}
+    .header{
+      height:76px;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid #e8eaee;
+      display:flex;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
+    .header-inner{
+      width:min(980px,calc(100% - 48px));
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:230px 1fr auto;
+      gap:28px;
+      align-items:center;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:13px;
+    }
+    .shield{
+      width:49px;height:56px;
+      background:linear-gradient(180deg,#fff,#fff8e6);
+      border:3px solid var(--gold);
+      border-radius:18px 18px 22px 22px;
+      position:relative;
+      display:grid;
+      place-items:center;
+      box-shadow:0 8px 20px rgba(196,139,40,.18);
+      color:var(--navy);
+      font-weight:950;
+      font-size:18px;
+    }
+    .shield:before{
+      content:"";
+      position:absolute;
+      inset:6px;
+      border:1px solid rgba(196,139,40,.45);
+      border-radius:13px 13px 17px 17px;
+    }
+    .brand-copy strong{display:block;color:var(--navy);font-size:25px;line-height:1;font-weight:950;letter-spacing:-.8px}
+    .brand-copy span{display:block;color:var(--navy-2);font-size:12px;margin-top:5px;font-weight:650}
+    .nav{display:flex;justify-content:center;gap:43px;color:#1b2a44;font-size:14px;font-weight:720}
+    .nav a{height:76px;display:flex;align-items:center;position:relative}
+    .nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:99px;background:var(--gold)}
+    .call-top{
+      height:42px;padding:0 22px;border-radius:999px;
+      display:flex;align-items:center;gap:10px;
+      background:linear-gradient(180deg,#fae3b8,#eac06f);
+      border:1px solid rgba(152,96,17,.38);
+      color:#23180a;
+      font-size:16px;
+      font-weight:850;
+      box-shadow:0 8px 20px rgba(196,139,40,.18);
+    }
+
+    /* Hero */
+    .hero{
+      min-height:480px;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:stretch;
+      background:#f9faf8;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg,#fff 0%,rgba(255,255,255,.98) 32%,rgba(255,255,255,.78) 47%,rgba(255,255,255,.1) 70%),
+        url("assets/hero-vinfast-beach.jpeg") center right/cover no-repeat;
+      z-index:0;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(255,255,255,0) 74%,rgba(255,255,255,.98) 100%);
+      pointer-events:none;
+      z-index:1;
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      width:min(980px,calc(100% - 48px));
+      margin:0 auto;
+      padding:56px 0 42px;
+    }
+    .hero-copy{max-width:455px}
+    .hero h1{
+      margin:0;
+      font-size:56px;
+      line-height:1.04;
+      font-weight:950;
+      letter-spacing:-1.8px;
+      color:var(--navy);
+    }
+    .hero .subtitle{
+      margin:12px 0 0;
+      color:var(--gold);
+      font-size:30px;
+      line-height:1.2;
+      font-weight:900;
+      letter-spacing:-.4px;
+    }
+    .gold-line{
+      width:68px;height:3px;background:var(--gold);border-radius:999px;margin:17px 0 18px;
+    }
+    .hero p{
+      color:#39465c;
+      font-size:15px;
+      line-height:1.65;
+      font-weight:560;
+      margin:0;
+      max-width:410px;
+    }
+    .hero-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:28px 0 18px;
+      max-width:460px;
+    }
+    .hero-chip{
+      min-height:44px;
+      padding:0 13px;
+      border-radius:11px;
+      background:rgba(255,255,255,.9);
+      border:1px solid #e4e8ed;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:13px;
+      font-weight:760;
+      color:#27334b;
+    }
+    .hero-chip .ico{color:var(--gold);font-size:21px}
+    .phone-card{
+      width:388px;
+      min-height:135px;
+      border-radius:20px;
+      background:rgba(255,255,255,.9);
+      border:1px solid #e6e9ee;
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:78px 1fr;
+      gap:16px;
+      align-items:center;
+      padding:22px;
+      backdrop-filter:blur(12px);
+    }
+    .phone-icon{
+      width:70px;height:70px;border-radius:50%;
+      border:2px solid rgba(196,139,40,.32);
+      display:grid;place-items:center;
+      color:var(--gold);
+      font-size:36px;
+      background:#fffaf0;
+    }
+    .phone-card span{display:block;font-size:16px;color:#27334b;text-align:center;font-weight:650}
+    .phone-card b{
+      display:block;
+      margin:1px 0 8px;
+      color:var(--navy);
+      font-size:42px;
+      line-height:1;
+      letter-spacing:-1px;
+      font-weight:950;
+    }
+    .btn-gold{
+      height:40px;
+      min-width:158px;
+      padding:0 20px;
+      border-radius:999px;
+      background:linear-gradient(180deg,#f5d992,#e5b458);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:1px solid rgba(142,90,20,.28);
+      color:#1c170c;
+      font-weight:900;
+      font-size:15px;
+      box-shadow:0 8px 18px rgba(196,139,40,.2);
+    }
+
+    .section{padding:26px 0}
+    .section-heading{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      margin:0 0 22px;
+      color:var(--navy);
+      font-size:30px;
+      line-height:1.15;
+      font-weight:950;
+      letter-spacing:-.65px;
+      text-align:center;
+    }
+    .section-heading:before,.section-heading:after{
+      content:"";
+      width:90px;height:1px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    }
+    .section-heading i{
+      width:8px;height:8px;border:2px solid var(--gold);border-radius:50%;display:inline-block;
+    }
+
+    /* Services */
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+    .service-card{
+      min-height:92px;
+      border-radius:14px;
+      border:1px solid #e2e6eb;
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      grid-template-columns:62px 1fr;
+      align-items:center;
+      gap:12px;
+      padding:16px;
+      transition:.2s ease;
+    }
+    .service-card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(7,31,66,.1);border-color:#dcc28b}
+    .service-icon{
+      width:55px;height:55px;border-radius:50%;
+      background:var(--navy);
+      border:3px solid #e9c36a;
+      color:#f6d994;
+      display:grid;place-items:center;
+      font-size:28px;
+      box-shadow:inset 0 0 0 2px rgba(255,255,255,.08);
+    }
+    .service-card b{display:block;font-size:16px;color:#132544;line-height:1.2;font-weight:900}
+    .service-card span{display:block;color:#667187;font-size:12.5px;line-height:1.35;margin-top:5px;font-weight:600}
+
+    /* Routes */
+    .route-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .route-card{
+      height:205px;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      background:#cdd9df;
+      isolation:isolate;
+      border:1px solid #e3e8ef;
+    }
+    .route-card img{width:100%;height:100%;object-fit:cover;transition:.25s ease}
+    .route-card:hover img{transform:scale(1.045)}
+    .route-card:after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(7,31,66,0) 35%,rgba(7,31,66,.86) 100%);
+      z-index:1;
+    }
+    .route-content{
+      position:absolute;left:0;right:0;bottom:0;z-index:2;
+      padding:16px 16px 14px;
+      color:#fff;
+      text-align:center;
+    }
+    .route-content b{display:block;font-size:21px;line-height:1.1;font-weight:950}
+    .route-content span{display:block;margin-top:7px;color:#ffe2a7;font-size:12.5px;font-weight:700}
+
+    /* Pricing */
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:1fr 1.12fr 1fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .price-card{
+      border-radius:18px;
+      border:1px solid #dce3ec;
+      background:#fff;
+      min-height:280px;
+      padding:24px 22px 18px;
+      text-align:center;
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      overflow:hidden;
+    }
+    .price-card.featured{
+      border:2px solid #e0a83d;
+      transform:translateY(-6px);
+      box-shadow:0 22px 45px rgba(196,139,40,.18);
+    }
+    .popular{
+      position:absolute;
+      top:0;left:50%;
+      transform:translateX(-50%);
+      height:27px;
+      min-width:150px;
+      border-radius:0 0 14px 14px;
+      background:linear-gradient(180deg,#d69d38,#bf8324);
+      color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      font-size:12px;font-weight:950;letter-spacing:.05em;
+    }
+    .price-card h3{margin:5px 0 0;font-size:18px;color:var(--navy);font-weight:950;text-transform:uppercase}
+    .price-card .price{margin:5px 0 4px;font-size:34px;line-height:1;color:var(--navy);font-weight:950;letter-spacing:-.8px}
+    .price-card.featured .price{color:var(--gold);font-size:37px}
+    .car-img{
+      height:105px;
+      margin:8px auto 4px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .car-img img{max-height:105px;object-fit:contain;mix-blend-mode:multiply}
+    .price-list{
+      margin:8px auto 14px;
+      width:max-content;
+      max-width:100%;
+      text-align:left;
+      color:#334058;
+      font-size:13.5px;
+      line-height:1.65;
+      font-weight:650;
+      padding-left:18px;
+    }
+    .btn-outline-navy{
+      height:38px;
+      border-radius:8px;
+      border:2px solid var(--navy);
+      color:var(--navy);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      gap:10px;
+      background:#fff;
+    }
+    .price-card.featured .btn-outline-navy{background:linear-gradient(180deg,#f5d27f,#dda642);border-color:#dda642;color:#1b1508}
+
+    /* Why */
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .why-card{
+      min-height:95px;
+      border-radius:13px;
+      background:#fff;
+      border:1px solid #e1e5eb;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      grid-template-columns:62px 1fr;
+      align-items:center;
+      gap:12px;
+      padding:16px;
+    }
+    .why-card .why-icon{font-size:40px;color:var(--navy)}
+    .why-card b{display:block;font-size:16px;line-height:1.18;color:#132544;font-weight:950}
+    .why-card span{display:block;font-size:12px;line-height:1.35;color:#667187;margin-top:5px;font-weight:600}
+
+    .cta-band{
+      margin:14px 0 28px;
+      border-radius:20px;
+      background:
+        radial-gradient(circle at 8% 50%,rgba(255,222,150,.16),transparent 160px),
+        linear-gradient(135deg,#061d40,#0a315d);
+      color:#fff;
+      min-height:104px;
+      display:grid;
+      grid-template-columns:120px 1fr 230px;
+      align-items:center;
+      gap:20px;
+      padding:16px 26px;
+      overflow:hidden;
+      box-shadow:0 20px 45px rgba(7,31,66,.22);
+      position:relative;
+    }
+    .cta-band:after{
+      content:"";
+      position:absolute;inset:0;
+      background:repeating-linear-gradient(120deg,transparent 0 40px,rgba(228,184,97,.08) 40px 42px);
+      pointer-events:none;
+    }
+    .cta-icon{
+      width:82px;height:82px;border-radius:50%;
+      border:3px solid var(--gold-2);
+      display:grid;place-items:center;
+      color:var(--gold-2);
+      font-size:42px;
+      position:relative;z-index:1;
+    }
+    .cta-text{position:relative;z-index:1}
+    .cta-text span{display:block;color:#fff;font-size:22px;font-style:italic;margin-bottom:3px}
+    .cta-text b{display:block;color:#ffd88c;font-size:45px;line-height:1;font-weight:950;letter-spacing:-1px}
+    .cta-actions{position:relative;z-index:1;text-align:center}
+    .cta-actions .btn-gold{width:170px}
+    .cta-actions small{display:block;margin-top:12px;color:#e9edf5;font-size:13px;font-weight:700}
+
+    /* Footer */
+    .footer{
+      background:#fff;
+      border-top:1px solid #e8eaee;
+      padding:28px 0 12px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.3fr 1fr 1fr 1fr;
+      gap:34px;
+      align-items:start;
+    }
+    .footer p,.footer li{font-size:13px;color:#5f6b80;line-height:1.6;font-weight:600}
+    .footer h4{margin:0 0 12px;color:var(--navy);font-size:15px;font-weight:950;text-transform:uppercase}
+    .footer ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+    .socials{display:flex;gap:10px;margin-top:14px}
+    .socials a{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-size:12px;font-weight:950}
+    .quality-badge{
+      border:1px solid rgba(196,139,40,.45);
+      border-radius:12px;
+      padding:12px 14px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      color:var(--navy);
+      background:#fffaf0;
+      margin-top:14px;
+      font-size:14px;
+      font-weight:900;
+    }
+    .copyright{text-align:center;color:#858f9e;font-size:12px;border-top:1px solid #edf0f3;margin-top:22px;padding-top:12px}
+
+    /* Responsive */
+    .menu-toggle{display:none}
+    @media(max-width:900px){
+      .header{height:68px}
+      .header-inner{grid-template-columns:1fr auto auto;width:calc(100% - 32px);gap:12px}
+      .nav{display:none}
+      .menu-toggle{display:grid;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;place-items:center;color:var(--navy);font-size:22px;background:#fff}
+      .call-top{height:42px;padding:0 16px;font-size:14px}
+      .brand-copy strong{font-size:20px}.brand-copy span{font-size:10px}.shield{width:42px;height:48px}
+      .container,.hero-content{width:calc(100% - 32px)}
+      .hero{min-height:auto}
+      .hero:before{background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.9) 43%,rgba(255,255,255,.55) 100%),url("assets/hero-vinfast-beach.jpeg") center/cover no-repeat}
+      .hero-content{padding:32px 0 34px}
+      .hero h1{font-size:42px}
+      .hero .subtitle{font-size:24px}
+      .phone-card{width:100%;grid-template-columns:64px 1fr;padding:18px}
+      .phone-icon{width:60px;height:60px;font-size:30px}
+      .phone-card b{font-size:34px}
+      .section-heading{font-size:24px}.section-heading:before,.section-heading:after{width:44px}
+      .service-grid,.route-grid,.why-grid{grid-template-columns:1fr 1fr}
+      .pricing-grid{grid-template-columns:1fr}
+      .price-card.featured{transform:none}
+      .cta-band{grid-template-columns:1fr;text-align:center;padding:22px;gap:14px}
+      .cta-icon{margin:0 auto}.cta-text b{font-size:36px}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){
+      .page{width:100%}
+      .call-top span{display:none}
+      .service-grid,.route-grid,.why-grid,.footer-grid{grid-template-columns:1fr}
+      .hero h1{font-size:38px}
+      .hero .subtitle{font-size:21px}
+      .hero-chips{display:grid;grid-template-columns:1fr 1fr}
+      .hero-chip{font-size:12px;padding:0 10px}
+      .phone-card b{font-size:30px}
+      .section{padding:22px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" href="#">
+          <span class="shield">VP</span>
+          <span class="brand-copy"><strong>VŨ PHÚ JP</strong><span>An toàn - Uy tín - Chất lượng</span></span>
+        </a>
+        <nav class="nav">
+          <a class="active" href="#">Trang chủ</a>
+          <a href="#routes">Tuyến xe</a>
+          <a href="#pricing">Bảng giá</a>
+          <a href="#services">Dịch vụ</a>
+          <a href="#contact">Liên hệ</a>
+        </nav>
+        <a class="call-top" href="tel:0963467577">☎ <span>Gọi ngay</span></a>
+        <button class="menu-toggle" aria-label="Mở menu">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-copy">
+            <h1>Xe ghép -<br>Xe tiện chuyến</h1>
+            <div class="subtitle">An toàn - Uy tín - Chất lượng</div>
+            <div class="gold-line"></div>
+            <p>Vũ Phú JP mang đến dịch vụ xe ghép, xe tiện chuyến chuyên nghiệp, tiện lợi và an toàn tuyệt đối. Đón tận nơi – Trả tận nơi – Gọi là có xe!</p>
+
+            <div class="hero-chips">
+              <div class="hero-chip"><span class="ico">⌖</span> Đón tận nơi</div>
+              <div class="hero-chip"><span class="ico">⌖</span> Trả tận nơi</div>
+              <div class="hero-chip"><span class="ico">▣</span> Chạy hằng ngày</div>
+              <div class="hero-chip"><span class="ico">☎</span> Gọi là có xe</div>
+            </div>
+
+            <div class="phone-card">
+              <div class="phone-icon">☎</div>
+              <div>
+                <span>Gọi là có xe – Đi là thích ngay!</span>
+                <b>0963 467 577</b>
+                <a class="btn-gold" href="#booking">Đặt xe ngay →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="container">
+          <h2 class="section-heading"><i></i>Dịch vụ của chúng tôi<i></i></h2>
+          <div class="service-grid">
+            <article class="service-card"><div class="service-icon">⌂</div><div><b>Đón tận nơi</b><span>Đón bạn tại nhà đúng giờ, đúng hẹn</span></div></article>
+            <article class="service-card"><div class="service-icon">⌖</div><div><b>Trả tận nơi</b><span>Trả bạn tại điểm đến yêu cầu</span></div></article>
+            <article class="service-card"><div class="service-icon">▣</div><div><b>Chạy hằng ngày</b><span>Lịch trình liên tục, chạy mỗi ngày</span></div></article>
+            <article class="service-card"><div class="service-icon">☎</div><div><b>Gọi là có xe</b><span>Gọi là có xe ngay, không phải chờ lâu</span></div></article>
+            <article class="service-card"><div class="service-icon">▰</div><div><b>Xe sạch sẽ</b><span>Xe luôn sạch sẽ, được vệ sinh thường xuyên</span></div></article>
+            <article class="service-card"><div class="service-icon">❄</div><div><b>Điều hòa mát</b><span>Điều hòa mát lạnh, thoải mái suốt hành trình</span></div></article>
+            <article class="service-card"><div class="service-icon">●</div><div><b>Tài xế thân thiện</b><span>Tài xế lịch sự, nhiệt tình, kinh nghiệm</span></div></article>
+            <article class="service-card"><div class="service-icon">▣</div><div><b>Nhận chở hành lý</b><span>Nhận chở hành lý, hàng hóa an toàn</span></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="routes" class="section">
+        <div class="container">
+          <h2 class="section-heading"><i></i>Tuyến chạy hằng ngày<i></i></h2>
+          <div class="route-grid">
+            <article class="route-card"><img src="assets/route-hanoi.jpg" alt="Thái Bình Hà Nội"><div class="route-content"><b>Thái Bình ⇄ Hà Nội</b><span>Thoải mái – Đúng giờ – An toàn</span></div></article>
+            <article class="route-card"><img src="assets/route-noibai.jpg" alt="Thái Bình Nội Bài"><div class="route-content"><b>Thái Bình ⇄ Nội Bài</b><span>Đón điểm đón – Không lo trễ chuyến</span></div></article>
+            <article class="route-card"><img src="assets/route-haiphong.jpg" alt="Thái Bình Hải Phòng"><div class="route-content"><b>Thái Bình ⇄ Hải Phòng</b><span>Nhanh chóng – Tiết kiệm – Tiện lợi</span></div></article>
+            <article class="route-card"><img src="assets/route-catba.jpg" alt="Thái Bình Cát Bà"><div class="route-content"><b>Thái Bình ⇄ Cát Bà</b><span>Nhiều khung giờ – Trọn vẹn niềm vui</span></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section">
+        <div class="container">
+          <h2 class="section-heading"><i></i>Bảng giá dịch vụ<i></i></h2>
+          <div class="pricing-grid">
+            <article class="price-card">
+              <h3>Xe ghép</h3>
+              <div class="price">300K - 400K</div>
+              <div class="car-img"><img src="assets/car-price-1.jpg" alt="Xe ghép"></div>
+              <ul class="price-list"><li>Giá hợp lý – Tiết kiệm</li><li>Lịch trình linh hoạt</li><li>Đón tận nơi – Trả tận nơi</li></ul>
+              <a class="btn-outline-navy" href="#booking">Đặt xe ngay →</a>
+            </article>
+            <article class="price-card featured">
+              <div class="popular">★ PHỔ BIẾN ★</div>
+              <h3>Bao xe 5 chỗ</h3>
+              <div class="price">700K - 900K</div>
+              <div class="car-img"><img src="assets/car-price-2.jpg" alt="Bao xe 5 chỗ"></div>
+              <ul class="price-list"><li>Chủ động thời gian</li><li>Tiện nghi – Riêng tư</li><li>Phù hợp gia đình, nhóm nhỏ</li></ul>
+              <a class="btn-outline-navy" href="#booking">Đặt xe ngay →</a>
+            </article>
+            <article class="price-card">
+              <h3>Bao xe 7 chỗ</h3>
+              <div class="price">900K - 1.1TR</div>
+              <div class="car-img"><img src="assets/car-price-3.jpg" alt="Bao xe 7 chỗ"></div>
+              <ul class="price-list"><li>Không gian rộng rãi</li><li>Phù hợp gia đình, nhóm lớn</li><li>Hành lý thoải mái</li></ul>
+              <a class="btn-outline-navy" href="#booking">Đặt xe ngay →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-heading"><i></i>Vì sao nên chọn Vũ Phú JP?<i></i></h2>
+          <div class="why-grid">
+            <article class="why-card"><div class="why-icon">♜</div><div><b>Uy tín tạo niềm tin</b><span>Cam kết đúng giờ, đúng tuyến, đúng chất lượng</span></div></article>
+            <article class="why-card"><div class="why-icon">✓</div><div><b>An toàn lên hàng đầu</b><span>Xe đời mới, bảo dưỡng định kỳ, đảm bảo an toàn</span></div></article>
+            <article class="why-card"><div class="why-icon">★</div><div><b>Chất lượng hàng đầu</b><span>Dịch vụ chuyên nghiệp, trải nghiệm thoải mái</span></div></article>
+            <article class="why-card"><div class="why-icon">☷</div><div><b>Phục vụ tận tâm</b><span>Hỗ trợ nhanh chóng, phục vụ 24/7</span></div></article>
+          </div>
+
+          <div id="booking" class="cta-band">
+            <div class="cta-icon">☎</div>
+            <div class="cta-text"><span>Gọi là có xe – Đi là thích ngay!</span><b>0963 467 577</b></div>
+            <div class="cta-actions"><a class="btn-gold" href="tel:0963467577">☎ Gọi ngay</a><small>Phục vụ 24/7 – Hỗ trợ nhanh chóng</small></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="#"><span class="shield">VP</span><span class="brand-copy"><strong>VŨ PHÚ JP</strong><span>An toàn - Uy tín - Chất lượng</span></span></a>
+            <p>Vũ Phú JP chuyên cung cấp dịch vụ xe ghép, xe tiện chuyến chất lượng cao, an toàn – tiện lợi – đúng giờ.</p>
+            <div class="socials"><a>f</a><a>Z</a><a>♪</a><a>▶</a></div>
+          </div>
+          <div>
+            <h4>Thông tin liên hệ</h4>
+            <ul><li>⌖ Thái Bình, Việt Nam</li><li>☎ 0963 467 577</li><li>✉ vuphu.jp.transport@gmail.com</li><li>⏱ Phục vụ 24/7</li></ul>
+          </div>
+          <div>
+            <h4>Liên kết nhanh</h4>
+            <ul><li>Trang chủ</li><li>Tuyến xe</li><li>Bảng giá</li><li>Dịch vụ</li><li>Liên hệ</li></ul>
+          </div>
+          <div>
+            <h4>Kết nối với chúng tôi</h4>
+            <div class="socials"><a>f</a><a>Z</a><a>♪</a><a>▶</a></div>
+            <div class="quality-badge"><span class="shield" style="width:36px;height:40px;font-size:12px;border-width:2px">VP</span><span>CAM KẾT CHẤT LƯỢNG<br><small>An toàn - Uy tín - Chất lượng</small></span></div>
+          </div>
+        </div>
+        <div class="copyright">© 2026 Vũ Phú JP. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

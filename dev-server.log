@@ -1,0 +1,9 @@
+
+> xe-ghep-vu-phu@0.1.0 dev
+> next dev -p 3010
+
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3010
+- Network:       http://192.168.50.1:3010
+✓ Ready in 427ms
+[?25h
