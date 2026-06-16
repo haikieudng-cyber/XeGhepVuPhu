@@ -429,7 +429,7 @@ export default function HomePage() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {whyCards.map((item) => (
               <article className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4 shadow-sm" key={item.title}>
-                <item.icon size={36} className="shrink-0 text-[var(--color-navy-900)]" />
+                <item.icon size={36} className="shrink-0 text-[var(--color-gold-500)]" />
                 <div>
                   <h3 className="font-heading text-base font-black leading-tight text-[var(--color-navy-950)]">{item.title}</h3>
                   <p className="mt-1 text-xs font-medium leading-relaxed text-slate-500">{item.copy}</p>
