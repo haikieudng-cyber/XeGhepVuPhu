@@ -373,7 +373,12 @@ export default function HomePage() {
       <section id="testimonials" className="bg-slate-50 py-10">
         <div className="mx-auto max-w-6xl px-0 sm:px-6 lg:px-8">
           <div className="px-4 sm:px-0">
-            <SectionTitle>Khách hàng nói gì về chúng tôi?</SectionTitle>
+            <SectionTitle>
+              <span className="flex flex-col sm:inline">
+                <span>Khách hàng nói gì </span>
+                <span>về chúng tôi?</span>
+              </span>
+            </SectionTitle>
           </div>
           <div className="flex snap-x snap-mandatory overflow-x-auto px-4 pb-4 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 sm:pb-0">
             {testimonials.map((item, idx) => (
@@ -415,7 +420,12 @@ export default function HomePage() {
 
       <section className="bg-slate-50 py-7">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle>Vì sao nên chọn Nhà Xe Vũ Phú?</SectionTitle>
+          <SectionTitle>
+            <span className="flex flex-col sm:inline">
+              <span>Vì sao nên chọn </span>
+              <span>Nhà Xe Vũ Phú?</span>
+            </span>
+          </SectionTitle>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {whyCards.map((item) => (
               <article className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4 shadow-sm" key={item.title}>
