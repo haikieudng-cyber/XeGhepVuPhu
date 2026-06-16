@@ -26,7 +26,7 @@ export function SiteFooter() {
           <div className="flex gap-2">
             {["f", "Zalo", "Tik", "You"].map((item) => (
               <span
-                className="grid h-8 w-8 place-items-center rounded-full bg-[var(--color-gold-500)] text-[10px] font-black text-[var(--color-navy-900)] hover:bg-[var(--color-gold-400)] transition-colors"
+                className="grid h-8 w-8 place-items-center rounded-full bg-[var(--color-gold-500)] text-[10px] font-black text-white hover:bg-[var(--color-gold-400)] transition-colors"
                 key={item}
               >
                 {item.slice(0, 1)}
@@ -60,7 +60,7 @@ export function SiteFooter() {
           <h3 className="mb-4 font-heading text-sm font-black uppercase text-[var(--color-navy-950)]">Kết nối với chúng tôi</h3>
           <div className="flex gap-2">
             {["f", "Z", "T", "Y"].map((item) => (
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-[var(--color-gold-500)] text-xs font-black text-[var(--color-navy-900)] hover:bg-[var(--color-gold-400)] transition-colors" key={item}>
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-[var(--color-gold-500)] text-xs font-black text-white hover:bg-[var(--color-gold-400)] transition-colors" key={item}>
                 {item}
               </span>
             ))}
