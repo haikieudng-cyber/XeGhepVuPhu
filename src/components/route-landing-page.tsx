@@ -5,7 +5,7 @@ import { faqs } from "@/data/faqs";
 import { pricing } from "@/data/pricing";
 import { routes, type RouteInfo } from "@/data/routes";
 import { siteConfig } from "@/data/site";
-import { Users, CreditCard, ShieldCheck, ChevronDown, CheckCircle2 } from "lucide-react";
+import { Users, CreditCard, ShieldCheck, ChevronDown, CheckCircle2, Star } from "lucide-react";
 
 export function RouteLandingPage({ route }: { route: RouteInfo }) {
   const relatedRoutes = routes.filter((item) => item.slug !== route.slug);

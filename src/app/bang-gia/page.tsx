@@ -3,7 +3,7 @@ import { Section } from "@/components/section";
 import { pricing } from "@/data/pricing";
 import { siteConfig } from "@/data/site";
 import { createPageMetadata } from "@/lib/metadata";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Star } from "lucide-react";
 
 export const metadata = createPageMetadata({
   title: "Bảng giá xe ghép, xe tiện chuyến",

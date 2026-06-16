@@ -1,0 +1,31 @@
+{
+  "meta": { "schema_version": "1.1.0", "awf_version": "3.3.0" },
+  "project": { 
+    "name": "XeGhepVuPhu", 
+    "type": "Next.js Web Application", 
+    "status": "active" 
+  },
+  "tech_stack": { 
+    "frontend": { "framework": "Next.js", "styling": "Tailwind CSS", "icons": "Lucide React" }, 
+    "backend": {}, 
+    "database": {} 
+  },
+  "database_schema": {},
+  "api_endpoints": [],
+  "business_rules": [],
+  "features": [
+    "Landing Page with Hero, Services, Routes, Pricing, FAQs, and Contact",
+    "Dynamic routing for individual route pages",
+    "High-resolution AI-generated assets for cars and locations"
+  ],
+  "knowledge_items": { 
+    "patterns": [
+      "Use mix-blend-multiply with CSS brightness/contrast to achieve transparent backgrounds for generated images",
+      "Use CSS clamp() and whitespace-nowrap for responsive, non-wrapping text on small mobile screens"
+    ], 
+    "gotchas": [
+      "AI-generated car images often include padding and off-white backgrounds; use scale and contrast tweaks to fix"
+    ], 
+    "conventions": [] 
+  }
+}
