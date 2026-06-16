@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { LocalBusinessJsonLd } from "@/components/seo/local-business-json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -18,6 +18,18 @@ export const metadata: Metadata = {
     description: "Xe ghép, xe tiện chuyến Thái Bình - Hà Nội, Nội Bài, Hải Phòng, Cát Bà.",
     type: "website",
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Nhà Xe Vũ Phú",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
