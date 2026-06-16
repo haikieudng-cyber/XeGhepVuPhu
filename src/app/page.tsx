@@ -114,7 +114,7 @@ export default function HomePage() {
         {/* HERO CONTENT */}
         <div className="relative z-20 mx-auto w-full max-w-6xl px-4 pb-10 pt-2 sm:px-6 md:py-8 lg:px-8">
           <div className="max-w-[480px] text-center md:text-left">
-            <h1 className="font-heading text-2xl font-black leading-[1.05] tracking-tight text-[var(--color-navy-950)] min-[375px]:text-[28px] sm:text-4xl md:text-5xl lg:text-[54px]">
+            <h1 className="whitespace-nowrap font-heading text-[clamp(1.15rem,6.2vw,2rem)] font-black leading-[1.05] tracking-tighter text-[var(--color-navy-950)] sm:text-4xl md:text-5xl lg:text-[54px]">
               Xe ghép - Xe tiện chuyến
             </h1>
             <p className="mt-2 font-heading text-xl font-black text-[var(--color-gold-600)] sm:text-2xl lg:text-[26px]">
