@@ -20,10 +20,9 @@ function getAvatarColor(name: string) {
   return avatarColors[Math.abs(hash) % avatarColors.length];
 }
 
-function formatTimeAgo(minutes: number) {
-  if (minutes < 60) return `${minutes} phút trước`;
-  if (minutes < 24 * 60) return `${Math.floor(minutes / 60)} giờ trước`;
-  return `${Math.floor(minutes / (24 * 60))} ngày trước`;
+function formatTimeAgo(days: number) {
+  if (days <= 1) return `Hôm qua`;
+  return `${days} ngày trước`;
 }
 
 export function SocialCommentsSection() {
@@ -34,24 +33,24 @@ export function SocialCommentsSection() {
     // 1. Shuffle comments randomly
     const shuffled = [...socialComments].sort(() => Math.random() - 0.5);
     
-    // 2. Generate dynamic times spread over minutes, hours, and days
-    let currentMinutesAgo = Math.floor(Math.random() * 45) + 2; // 2 to 46 mins ago
+    // 2. Generate dynamic times spread over days
+    let currentDaysAgo = Math.floor(Math.random() * 2) + 1; // 1 to 2 days ago
     
     const dynamicComments = shuffled.map((c) => {
-      const timeStr = formatTimeAgo(currentMinutesAgo);
+      const timeStr = formatTimeAgo(currentDaysAgo);
       
       let newReplies = c.replies;
       if (newReplies) {
         newReplies = newReplies.map((r) => {
-           // Reply happens AFTER the comment, so it is MORE RECENT (fewer minutes ago)
-           // But ensure it's at least 1 min ago and not negative
-           const replyMinutesAgo = Math.max(1, currentMinutesAgo - Math.floor(Math.random() * Math.min(10, currentMinutesAgo)) - 1);
-           return { ...r, time: formatTimeAgo(replyMinutesAgo) };
+           // Reply happens AFTER the comment, so it is MORE RECENT (fewer days ago)
+           // But ensure it's at least 1 day ago (Hôm qua)
+           const replyDaysAgo = Math.max(1, currentDaysAgo - Math.floor(Math.random() * 2));
+           return { ...r, time: formatTimeAgo(replyDaysAgo) };
         });
       }
       
-      // The next comment downwards should be significantly older (2 hours to 2.5 days older)
-      currentMinutesAgo += Math.floor(Math.random() * 3600) + 120;
+      // The next comment downwards should be significantly older (1 to 4 days older)
+      currentDaysAgo += Math.floor(Math.random() * 4) + 1;
       
       return { ...c, time: timeStr, replies: newReplies };
     });
