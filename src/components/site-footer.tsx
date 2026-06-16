@@ -12,7 +12,7 @@ export function SiteFooter() {
               VP
             </span>
             <span>
-              <span className="block font-heading text-2xl font-black leading-none text-[var(--color-navy-950)]">
+              <span className="block whitespace-nowrap font-heading text-[22px] font-black leading-none tracking-tight text-[var(--color-navy-950)] sm:text-2xl">
                 {siteConfig.name.toUpperCase()}
               </span>
               <span className="mt-1 block text-xs font-semibold text-[var(--color-navy-800)]">
