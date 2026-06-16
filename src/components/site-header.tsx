@@ -45,7 +45,7 @@ export function SiteHeader() {
             className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[var(--color-gold-600)]/30 bg-gradient-to-b from-[var(--color-gold-400)] to-[var(--color-gold-600)] px-5 text-sm font-black text-white shadow-sm transition-transform active:scale-95"
             href={siteConfig.phoneHref}
           >
-            <Phone size={16} />
+            <Phone size={16} className="text-white stroke-white" />
             <span className="hidden sm:inline">Gọi ngay</span>
           </a>
         </div>
