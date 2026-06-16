@@ -197,7 +197,7 @@ export default function HomePage() {
                 key={item.name}
               >
                 {index === 1 ? (
-                  <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-lg bg-gradient-to-b from-[#d69d38] to-[#bf8324] px-8 py-1.5 text-[10px] font-black uppercase tracking-widest text-white sm:text-xs">
+                  <div className="absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap rounded-b-lg bg-gradient-to-b from-[#d69d38] to-[#bf8324] px-6 py-1.5 text-[10px] font-black uppercase tracking-wider text-white sm:px-8 sm:text-xs">
                     <Star size={12} className="mr-1 inline pb-0.5" /> Phổ biến nhất
                   </div>
                 ) : null}

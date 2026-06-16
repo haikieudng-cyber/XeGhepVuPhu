@@ -24,8 +24,8 @@ export default function PricingPage() {
           {pricing.map((item, idx) => (
             <article className={`relative overflow-hidden flex flex-col rounded-2xl border bg-white p-8 transition-all hover:shadow-xl ${idx === 1 ? 'border-[var(--color-gold-300)] shadow-lg md:-mt-4 md:mb-4 scale-100 md:scale-105' : 'border-slate-200'}`} key={item.name}>
               {idx === 1 && (
-                <div className="absolute top-0 right-0 bg-[var(--color-gold-400)] text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wide">
-                  Phổ biến nhất
+                <div className="absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap rounded-b-lg bg-gradient-to-b from-[#d69d38] to-[#bf8324] px-6 py-1.5 text-[10px] font-black uppercase tracking-wider text-white sm:px-8 sm:text-xs">
+                  <Star size={12} className="mr-1 inline pb-0.5" /> Phổ biến nhất
                 </div>
               )}
               <h2 className="font-heading text-2xl font-bold text-[var(--color-navy-900)]">{item.name}</h2>
