@@ -174,7 +174,12 @@ export function SocialCommentsSection() {
           <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-300 text-sm font-bold text-white shadow-sm">
             <UserRound size={20} />
           </div>
-          <a href={siteConfig.phoneHref} className="flex h-10 flex-1 items-center rounded-full border border-slate-200 bg-slate-100 px-4 text-[13px] text-slate-500 hover:bg-slate-200 transition-colors cursor-pointer">
+          <a 
+            href={siteConfig.zaloHref} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex h-10 flex-1 items-center rounded-full border border-slate-200 bg-slate-100 px-4 text-[13px] text-slate-500 hover:bg-slate-200 transition-colors cursor-pointer"
+          >
             Viết bình luận hoặc đặt xe...
           </a>
         </div>
