@@ -30,7 +30,8 @@ function formatTimeAgo(days: number) {
   
   const day = date.getDate();
   const month = date.getMonth() + 1;
-  return `${day} tháng ${month}`;
+  const year = date.getFullYear();
+  return `${day} tháng ${month}, ${year}`;
 }
 
 export function SocialCommentsSection() {
