@@ -22,7 +22,15 @@ function getAvatarColor(name: string) {
 
 function formatTimeAgo(days: number) {
   if (days <= 1) return `Hôm qua`;
-  return `${days} ngày trước`;
+  if (days <= 3) return `${days} ngày trước`;
+  
+  // For older than 3 days, show an exact date (e.g. "12 tháng 6")
+  const date = new Date();
+  date.setDate(date.getDate() - days);
+  
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  return `${day} tháng ${month}`;
 }
 
 export function SocialCommentsSection() {
