@@ -239,7 +239,7 @@ export default function HomePage() {
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
-                <a className={`mt-6 flex h-11 items-center justify-center gap-2 rounded-xl border-2 text-sm font-black transition-transform hover:scale-[1.02] active:scale-95 ${index === 1 ? "border-[var(--color-gold-500)] bg-gradient-to-b from-[#f5d27f] to-[#dda642] text-[#1b1508]" : "border-[var(--color-navy-900)] text-[var(--color-navy-900)]"}`} href={siteConfig.phoneHref}>
+                <a className={`mt-6 flex h-11 items-center justify-center gap-2 rounded-xl border-2 text-sm font-black transition-transform hover:scale-[1.02] active:scale-95 ${index === 1 ? "border-[var(--color-gold-500)] bg-gradient-to-b from-[var(--color-gold-400)] to-[var(--color-gold-600)] text-white" : "border-[var(--color-navy-900)] text-[var(--color-navy-900)]"}`} href={siteConfig.phoneHref}>
                   Đặt xe ngay <ArrowRight size={18} />
                 </a>
               </article>
