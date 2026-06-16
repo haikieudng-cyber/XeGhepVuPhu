@@ -95,11 +95,11 @@ const whyCards = [
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="mb-6 flex items-center justify-center gap-2 text-center font-heading text-lg font-black tracking-tight text-[var(--color-navy-950)] min-[375px]:gap-3 min-[375px]:text-xl sm:text-3xl">
-      <span className="hidden h-px w-20 bg-gradient-to-r from-transparent to-[var(--color-gold-500)] sm:block" />
-      <span className="h-2 w-2 rounded-full border-2 border-[var(--color-gold-500)]" />
-      {children}
-      <span className="h-2 w-2 rounded-full border-2 border-[var(--color-gold-500)]" />
-      <span className="hidden h-px w-20 bg-gradient-to-l from-transparent to-[var(--color-gold-500)] sm:block" />
+      <span className="block h-px w-8 bg-gradient-to-r from-transparent to-[var(--color-gold-500)] sm:w-20" />
+      <span className="h-2 w-2 shrink-0 rounded-full border-2 border-[var(--color-gold-500)]" />
+      <span>{children}</span>
+      <span className="h-2 w-2 shrink-0 rounded-full border-2 border-[var(--color-gold-500)]" />
+      <span className="block h-px w-8 bg-gradient-to-l from-transparent to-[var(--color-gold-500)] sm:w-20" />
     </h2>
   );
 }
@@ -191,9 +191,11 @@ export default function HomePage() {
       </section>
 
       <section id="tuyen-xe" className="bg-white py-7">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle>Tuyến chạy hằng ngày</SectionTitle>
-          <div className="flex snap-x snap-mandatory overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:pb-0 lg:grid-cols-4">
+        <div className="mx-auto max-w-6xl px-0 sm:px-6 lg:px-8">
+          <div className="px-4 sm:px-0">
+            <SectionTitle>Tuyến chạy hằng ngày</SectionTitle>
+          </div>
+          <div className="flex snap-x snap-mandatory overflow-x-auto px-4 pb-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0 sm:pb-0 lg:grid-cols-4">
             {routes.map((route, index) => (
               <a className="group relative mr-4 h-[240px] w-[280px] shrink-0 snap-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-md sm:mr-0 sm:h-[220px] sm:w-auto" href={`/${route.slug}`} key={route.slug}>
                 <Image src={routeImages[index]} alt={route.name} fill sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 280px" className="object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -210,9 +212,11 @@ export default function HomePage() {
       </section>
 
       <section id="bang-gia" className="bg-white py-7">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle>Bảng giá dịch vụ</SectionTitle>
-          <div className="flex snap-x snap-mandatory overflow-x-auto pb-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0">
+        <div className="mx-auto max-w-6xl px-0 sm:px-6 lg:px-8">
+          <div className="px-4 sm:px-0">
+            <SectionTitle>Bảng giá dịch vụ</SectionTitle>
+          </div>
+          <div className="flex snap-x snap-mandatory overflow-x-auto px-4 pb-6 sm:px-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0">
             {pricing.map((item, index) => (
               <article
                 className={`relative mr-4 w-[300px] shrink-0 snap-center overflow-hidden rounded-2xl border bg-white px-6 pb-6 pt-8 text-center shadow-md lg:mr-0 lg:w-auto ${index === 1 ? "border-2 border-[var(--color-gold-500)] shadow-xl" : "border-slate-100"}`}
@@ -343,7 +347,12 @@ export default function HomePage() {
 
       <section id="gallery" className="bg-white py-10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle>Hàng ngàn chuyến đi an toàn & vui vẻ</SectionTitle>
+          <SectionTitle>
+            <span className="flex flex-col">
+              <span>Hàng ngàn chuyến đi</span>
+              <span className="uppercase">an toàn & vui vẻ</span>
+            </span>
+          </SectionTitle>
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
             {galleryItems.map((item, idx) => (
               <div key={idx} className="group relative aspect-square overflow-hidden rounded-2xl bg-slate-100 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
@@ -362,9 +371,11 @@ export default function HomePage() {
       </section>
 
       <section id="testimonials" className="bg-slate-50 py-10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle>Khách hàng nói gì về chúng tôi?</SectionTitle>
-          <div className="flex snap-x snap-mandatory overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 sm:pb-0">
+        <div className="mx-auto max-w-6xl px-0 sm:px-6 lg:px-8">
+          <div className="px-4 sm:px-0">
+            <SectionTitle>Khách hàng nói gì về chúng tôi?</SectionTitle>
+          </div>
+          <div className="flex snap-x snap-mandatory overflow-x-auto px-4 pb-4 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 sm:pb-0">
             {testimonials.map((item, idx) => (
               <article key={idx} className="mr-4 w-[280px] shrink-0 snap-center rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:mr-0 sm:w-auto">
                 <div className="flex gap-1 text-[var(--color-gold-500)]">
