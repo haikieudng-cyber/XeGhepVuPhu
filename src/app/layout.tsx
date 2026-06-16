@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="vi">
-      <body className="font-sans antialiased text-slate-800 bg-slate-50 min-h-screen flex flex-col">
+      <body className="font-sans antialiased text-slate-800 bg-slate-50 min-h-screen flex flex-col overflow-x-hidden">
         <LocalBusinessJsonLd />
         <SiteHeader />
         <main className="flex-1">{children}</main>

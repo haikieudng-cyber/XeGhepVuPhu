@@ -15,9 +15,16 @@ import {
   Star,
   UserRound,
   Users,
+  ChevronDown,
+  ThumbsUp,
+  Camera,
 } from "lucide-react";
 import { pricing } from "@/data/pricing";
 import { routes } from "@/data/routes";
+import { testimonials } from "@/data/testimonials";
+import { faqs } from "@/data/faqs";
+import { socialComments } from "@/data/comments";
+import { galleryItems } from "@/data/gallery";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -25,6 +32,21 @@ export const metadata: Metadata = {
   description:
     "Nhà Xe Vũ Phú chuyên xe ghép, xe tiện chuyến. Đón tận nơi, trả tận nơi các tuyến Thái Bình - Hà Nội, Nội Bài, Hải Phòng, Cát Bà. Gọi đặt xe 0963 467 577.",
 };
+
+const avatarColors = [
+  "bg-red-500", "bg-orange-500", "bg-amber-500", "bg-green-500", 
+  "bg-emerald-500", "bg-teal-500", "bg-cyan-500", "bg-blue-500", 
+  "bg-indigo-500", "bg-violet-500", "bg-purple-500", "bg-fuchsia-500", 
+  "bg-pink-500", "bg-rose-500"
+];
+
+function getAvatarColor(name: string) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return avatarColors[Math.abs(hash) % avatarColors.length];
+}
 
 const heroBenefits = [
   { label: "Đón / Trả tận nơi", icon: MapPin },
@@ -154,9 +176,9 @@ export default function HomePage() {
           <SectionTitle>Dịch vụ của chúng tôi</SectionTitle>
           <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
             {serviceCards.map((item) => (
-              <article className="flex flex-col items-center justify-start gap-2.5 rounded-2xl border border-slate-100 bg-white p-4 text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] sm:flex-row sm:text-left" key={item.title}>
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,var(--color-navy-800),var(--color-navy-950))] text-[var(--color-gold-300)] shadow-md sm:h-14 sm:w-14">
-                  <item.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+              <article className="group flex flex-col items-center justify-start gap-2.5 rounded-2xl border border-slate-100 bg-white p-4 text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all hover:border-[var(--color-gold-200)] hover:shadow-md sm:flex-row sm:text-left" key={item.title}>
+                <div className="flex shrink-0 items-center justify-center text-[var(--color-gold-500)] transition-transform duration-300 group-hover:scale-110">
+                  <item.icon className="h-10 w-10 sm:h-12 sm:w-12 transition-all duration-300 group-hover:fill-[var(--color-gold-500)]" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="font-heading text-[13px] font-black leading-tight text-[var(--color-navy-950)] sm:text-base">{item.title}</h3>
@@ -168,7 +190,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-7">
+      <section id="tuyen-xe" className="bg-white py-7">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionTitle>Tuyến chạy hằng ngày</SectionTitle>
           <div className="flex snap-x snap-mandatory overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:pb-0 lg:grid-cols-4">
@@ -187,7 +209,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-7">
+      <section id="bang-gia" className="bg-white py-7">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionTitle>Bảng giá dịch vụ</SectionTitle>
           <div className="flex snap-x snap-mandatory overflow-x-auto pb-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0">
@@ -222,7 +244,165 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-7">
+      <section id="social-comments" className="bg-slate-50 py-10 sm:py-14">
+        <div className="mx-auto max-w-3xl px-0 sm:px-6 lg:px-8">
+          <div className="px-4 sm:px-0">
+            <SectionTitle>Hoạt động gần đây</SectionTitle>
+          </div>
+          <div className="border-y border-slate-200 sm:border bg-white shadow-sm sm:rounded-2xl overflow-hidden">
+            <div className="divide-y divide-slate-100 max-h-[600px] overflow-y-auto custom-scrollbar">
+              {socialComments.map((comment, idx) => {
+                const avatarBg = comment.isAdmin ? "bg-[var(--color-navy-900)]" : getAvatarColor(comment.name);
+                return (
+                  <div key={idx} className="p-4 sm:p-5">
+                    <div className="flex gap-3">
+                      <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-full text-sm font-bold text-white shadow-sm ${avatarBg}`}>
+                        {comment.isAdmin ? "VP" : comment.name.charAt(0)}
+                      </div>
+                      <div className="flex-1">
+                        <div className="inline-block rounded-2xl bg-slate-100 px-4 py-2.5">
+                          <div className="flex items-center gap-1.5">
+                            <span className="font-bold text-[13px] text-[#050505]">{comment.name}</span>
+                            {comment.isAdmin && (
+                              <CheckCircle2 size={13} className="text-[var(--color-gold-500)]" fill="currentColor" />
+                            )}
+                          </div>
+                          <p className="mt-0.5 text-[13px] leading-relaxed text-[#050505]">{comment.text}</p>
+                        </div>
+                        <div className="mt-1.5 flex items-center gap-4 px-3 text-[12px] font-semibold text-[#65676b]">
+                          <span className="cursor-pointer hover:underline">Thích</span>
+                          <span className="cursor-pointer hover:underline">Phản hồi</span>
+                          <span className="font-normal">{comment.time}</span>
+                          {comment.likes && (
+                            <div className="ml-auto flex items-center gap-1 rounded-full bg-white px-1.5 py-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.1)]">
+                              <div className="grid h-4 w-4 place-items-center rounded-full bg-[linear-gradient(135deg,#00aaff,#0077ff)] text-white">
+                                <ThumbsUp size={8} fill="currentColor" />
+                              </div>
+                              <span className="text-[11px] font-normal">{comment.likes}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    {/* Replies */}
+                    {comment.replies && comment.replies.length > 0 && (
+                      <div className="mt-3 ml-12 space-y-3">
+                        {comment.replies.map((reply, rIdx) => {
+                          const rAvatarBg = reply.isAdmin ? "bg-[var(--color-navy-900)]" : getAvatarColor(reply.name);
+                          return (
+                            <div key={rIdx} className="flex gap-3">
+                              <div className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-xs font-bold text-white shadow-sm ${rAvatarBg}`}>
+                                {reply.isAdmin ? "VP" : reply.name.charAt(0)}
+                              </div>
+                              <div className="flex-1">
+                                <div className="inline-block rounded-2xl bg-slate-100 px-4 py-2.5">
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="font-bold text-[13px] text-[#050505]">{reply.name}</span>
+                                    {reply.isAdmin && (
+                                      <CheckCircle2 size={13} className="text-[var(--color-gold-500)]" fill="currentColor" />
+                                    )}
+                                  </div>
+                                  <p className="mt-0.5 text-[13px] leading-relaxed text-[#050505]">{reply.text}</p>
+                                </div>
+                                <div className="mt-1.5 flex items-center gap-4 px-3 text-[12px] font-semibold text-[#65676b]">
+                                  <span className="cursor-pointer hover:underline">Thích</span>
+                                  <span className="cursor-pointer hover:underline">Phản hồi</span>
+                                  <span className="font-normal">{reply.time}</span>
+                                  {reply.likes && (
+                                    <div className="ml-auto flex items-center gap-1 rounded-full bg-white px-1.5 py-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.1)]">
+                                      <div className="grid h-4 w-4 place-items-center rounded-full bg-[linear-gradient(135deg,#00aaff,#0077ff)] text-white">
+                                        <ThumbsUp size={8} fill="currentColor" />
+                                      </div>
+                                      <span className="text-[11px] font-normal">{reply.likes}</span>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="border-t border-slate-100 bg-slate-50/50 p-4 sm:p-5">
+              <div className="flex gap-3">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-300 text-sm font-bold text-white shadow-sm">
+                  <UserRound size={20} />
+                </div>
+                <a href={siteConfig.phoneHref} className="flex h-10 flex-1 items-center rounded-full border border-slate-200 bg-slate-100 px-4 text-[13px] text-slate-500 hover:bg-slate-200 transition-colors cursor-pointer">
+                  Viết bình luận hoặc đặt xe...
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" className="bg-white py-10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle>Hàng ngàn chuyến đi an toàn & vui vẻ</SectionTitle>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {galleryItems.map((item, idx) => (
+              <div key={idx} className="group relative aspect-square overflow-hidden rounded-2xl bg-slate-100 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-400 gap-2">
+                  <Camera size={24} />
+                  <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">Ảnh thực tế {idx + 1}</span>
+                </div>
+                <img src={item.src} alt={`Hành khách ${idx + 1}`} className="relative z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 pt-10 text-center sm:text-left">
+                  <p className="text-xs font-medium leading-snug text-white sm:text-sm shadow-sm">{item.caption}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="bg-slate-50 py-10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle>Khách hàng nói gì về chúng tôi?</SectionTitle>
+          <div className="flex snap-x snap-mandatory overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 sm:pb-0">
+            {testimonials.map((item, idx) => (
+              <article key={idx} className="mr-4 w-[280px] shrink-0 snap-center rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:mr-0 sm:w-auto">
+                <div className="flex gap-1 text-[var(--color-gold-500)]">
+                  {Array.from({ length: item.rating }).map((_, i) => (
+                    <Star key={i} size={16} fill="currentColor" />
+                  ))}
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-slate-700 italic">"{item.text}"</p>
+                <div className="mt-6 border-t border-slate-100 pt-4">
+                  <p className="font-heading text-sm font-black text-[var(--color-navy-950)]">{item.name}</p>
+                  <p className="mt-0.5 text-xs font-semibold text-slate-500">{item.route}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="bg-white py-10">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle>Câu hỏi thường gặp</SectionTitle>
+          <div className="grid gap-3">
+            {faqs.slice(0, 5).map((faq) => (
+              <details className="group rounded-2xl border border-slate-200 bg-white p-5 [&_summary::-webkit-details-marker]:hidden" key={faq.question}>
+                <summary className="flex cursor-pointer items-center justify-between gap-4 font-heading text-base font-semibold text-[var(--color-navy-900)]">
+                  {faq.question}
+                  <ChevronDown className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180 text-[var(--color-gold-500)]" />
+                </summary>
+                <p className="mt-4 leading-relaxed text-sm text-slate-600 border-t border-slate-100 pt-4">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-7">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionTitle>Vì sao nên chọn Nhà Xe Vũ Phú?</SectionTitle>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -248,7 +428,7 @@ export default function HomePage() {
               </a>
             </div>
             <div className="text-center">
-              <a className="inline-flex h-12 w-full max-w-[200px] items-center justify-center gap-2 rounded-full bg-gradient-to-b from-[#fae3b8] to-[#eac06f] text-base font-black text-[#23180a] shadow-lg transition-transform hover:scale-105 active:scale-95" href={siteConfig.phoneHref}>
+              <a className="inline-flex h-12 w-full max-w-[200px] items-center justify-center gap-2 rounded-full bg-gradient-to-b from-[var(--color-gold-400)] to-[var(--color-gold-600)] text-base font-black text-white shadow-lg transition-transform hover:scale-105 active:scale-95" href={siteConfig.phoneHref}>
                 <Phone size={18} /> Gọi ngay
               </a>
               <small className="mt-3 block text-xs font-bold text-slate-300">Phục vụ 24/7 • Hỗ trợ nhanh</small>

@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { Phone, Menu } from "lucide-react";
+import { Phone } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
 const navItems = [
   { href: "/", label: "Trang chủ" },
-  { href: "/tuyen-xe", label: "Tuyến xe" },
-  { href: "/bang-gia", label: "Bảng giá" },
+  { href: "/#tuyen-xe", label: "Tuyến xe" },
+  { href: "/#bang-gia", label: "Bảng giá" },
   { href: "/#services", label: "Dịch vụ" },
-  { href: "/lien-he", label: "Liên hệ" },
+  { href: "#footer", label: "Liên hệ" },
 ];
 
 export function SiteHeader() {
@@ -42,15 +42,12 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-4">
           <a
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[var(--color-gold-600)]/30 bg-gradient-to-b from-[#fae3b8] to-[#eac06f] px-5 text-sm font-black text-[#23180a] shadow-sm transition-transform active:scale-95"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[var(--color-gold-600)]/30 bg-gradient-to-b from-[var(--color-gold-400)] to-[var(--color-gold-600)] px-5 text-sm font-black text-white shadow-sm transition-transform active:scale-95"
             href={siteConfig.phoneHref}
           >
             <Phone size={16} />
             <span className="hidden sm:inline">Gọi ngay</span>
           </a>
-          <button className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-[var(--color-navy-900)] lg:hidden" aria-label="Mở menu">
-            <Menu size={24} />
-          </button>
         </div>
       </div>
     </header>

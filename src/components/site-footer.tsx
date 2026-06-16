@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-slate-200 bg-white text-slate-600">
+    <footer id="footer" className="border-t border-slate-200 bg-white text-slate-600">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div className="space-y-4">
           <Link href="/" className="inline-flex items-center gap-3">
@@ -49,10 +49,10 @@ export function SiteFooter() {
           <h3 className="mb-4 font-heading text-sm font-black uppercase text-[var(--color-navy-950)]">Liên kết nhanh</h3>
           <ul className="grid gap-2 text-sm font-semibold">
             <li><Link href="/" className="hover:text-[var(--color-gold-600)]">Trang chủ</Link></li>
-            <li><Link href="/tuyen-xe" className="hover:text-[var(--color-gold-600)]">Tuyến xe</Link></li>
-            <li><Link href="/bang-gia" className="hover:text-[var(--color-gold-600)]">Bảng giá</Link></li>
+            <li><Link href="/#tuyen-xe" className="hover:text-[var(--color-gold-600)]">Tuyến xe</Link></li>
+            <li><Link href="/#bang-gia" className="hover:text-[var(--color-gold-600)]">Bảng giá</Link></li>
             <li><Link href="/#services" className="hover:text-[var(--color-gold-600)]">Dịch vụ</Link></li>
-            <li><Link href="/lien-he" className="hover:text-[var(--color-gold-600)]">Liên hệ</Link></li>
+            <li><Link href="#footer" className="hover:text-[var(--color-gold-600)]">Liên hệ</Link></li>
           </ul>
         </div>
 
