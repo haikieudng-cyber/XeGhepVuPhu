@@ -12,7 +12,7 @@ type DataLayerEvent = {
 
 declare global {
   interface Window {
-    dataLayer?: Array<Record<string, unknown>>;
+    dataLayer?: Object[];
   }
 }
 
