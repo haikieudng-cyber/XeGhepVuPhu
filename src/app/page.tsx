@@ -16,14 +16,12 @@ import {
   UserRound,
   Users,
   ChevronDown,
-  ThumbsUp,
   Camera,
 } from "lucide-react";
 import { pricing } from "@/data/pricing";
 import { routes } from "@/data/routes";
 import { testimonials } from "@/data/testimonials";
 import { faqs } from "@/data/faqs";
-import { socialComments } from "@/data/comments";
 import { galleryItems } from "@/data/gallery";
 import { siteConfig } from "@/data/site";
 import { SocialCommentsSection } from "@/components/social-comments-section";
@@ -75,7 +73,7 @@ const whyCards = [
   { title: "Uy tín tạo niềm tin", copy: "Cam kết đúng giờ, đúng tuyến, đúng chất lượng", icon: ShieldCheck },
   { title: "An toàn lên hàng đầu", copy: "Xe đời mới, bảo dưỡng định kỳ, đảm bảo an toàn tuyệt đối", icon: CheckCircle2 },
   { title: "Chất lượng hàng đầu", copy: "Dịch vụ chuyên nghiệp, trải nghiệm thoải mái", icon: BadgeCheck },
-  { title: "Phục vụ tận tâm", copy: "Hỗ trợ nhanh chóng, phục vụ 24/7", icon: Users },
+  { title: "Phục vụ tận tâm", copy: "Hỗ trợ hỏi tuyến, giá và thời gian đón", icon: Users },
 ];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
@@ -148,7 +146,7 @@ export default function HomePage() {
               </div>
               <div className="text-left">
                 <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{siteConfig.slogan}</p>
-                <a className="block font-heading text-3xl font-black text-[var(--color-navy-950)] sm:text-4xl" href={siteConfig.phoneHref}>
+                <a className="block font-heading text-3xl font-black text-[var(--color-navy-950)] sm:text-4xl" data-cta-location="hero-phone-card" href={siteConfig.phoneHref}>
                   {siteConfig.phone}
                 </a>
               </div>
@@ -183,7 +181,7 @@ export default function HomePage() {
           </div>
           <div className="flex snap-x snap-mandatory overflow-x-auto px-4 pb-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0 sm:pb-0 lg:grid-cols-4">
             {routes.map((route, index) => (
-              <a className="group relative mr-4 h-[240px] w-[280px] shrink-0 snap-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-md sm:mr-0 sm:h-[220px] sm:w-auto" href={siteConfig.zaloHref} target="_blank" rel="noopener noreferrer" key={route.slug}>
+              <a className="group relative mr-4 h-[240px] w-[280px] shrink-0 snap-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-md sm:mr-0 sm:h-[220px] sm:w-auto" data-cta-location="homepage-route-card" data-route={route.slug} href={siteConfig.zaloHref} target="_blank" rel="noopener noreferrer" key={route.slug}>
                 <Image src={routeImages[index]} alt={route.name} fill sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 280px" className="object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-navy-950)] via-[var(--color-navy-950)]/80 to-transparent p-5 pt-20 text-center text-white">
                   <h3 className="font-heading text-xl font-black">{route.name.replace(" - ", " ⇄ ")}</h3>
@@ -225,7 +223,7 @@ export default function HomePage() {
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
-                <a className={`mt-6 flex h-11 items-center justify-center gap-2 rounded-xl border-2 text-sm font-black transition-transform hover:scale-[1.02] active:scale-95 ${index === 1 ? "border-[var(--color-gold-500)] bg-gradient-to-b from-[var(--color-gold-400)] to-[var(--color-gold-600)] !text-white" : "border-[var(--color-navy-900)] text-[var(--color-navy-900)]"}`} href={siteConfig.phoneHref}>
+                <a className={`mt-6 flex h-11 items-center justify-center gap-2 rounded-xl border-2 text-sm font-black transition-transform hover:scale-[1.02] active:scale-95 ${index === 1 ? "border-[var(--color-gold-500)] bg-gradient-to-b from-[var(--color-gold-400)] to-[var(--color-gold-600)] !text-white" : "border-[var(--color-navy-900)] text-[var(--color-navy-900)]"}`} data-cta-location="homepage-bang-gia" href={siteConfig.phoneHref}>
                   Đặt xe ngay <ArrowRight size={18} />
                 </a>
               </article>
@@ -286,7 +284,7 @@ export default function HomePage() {
                     <Star key={i} size={16} fill="currentColor" />
                   ))}
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-slate-700 italic">"{item.text}"</p>
+                <p className="mt-4 text-sm leading-relaxed text-slate-700 italic">&ldquo;{item.text}&rdquo;</p>
                 <div className="mt-6 border-t border-slate-100 pt-4">
                   <p className="font-heading text-sm font-black text-[var(--color-navy-950)]">{item.name}</p>
                   <p className="mt-0.5 text-xs font-semibold text-slate-500">{item.route}</p>
@@ -342,15 +340,15 @@ export default function HomePage() {
             </div>
             <div>
               <p className="font-heading text-lg font-medium text-slate-300 sm:text-xl sm:italic">{siteConfig.slogan}</p>
-              <a href={siteConfig.phoneHref} className="mt-1 block font-heading text-4xl font-black tracking-tight text-[#ffd88c] sm:text-5xl">
+              <a href={siteConfig.phoneHref} data-cta-location="final-cta-phone-number" className="mt-1 block font-heading text-4xl font-black tracking-tight text-[#ffd88c] sm:text-5xl">
                 {siteConfig.phone}
               </a>
             </div>
             <div className="text-center">
-              <a className="inline-flex h-12 w-full max-w-[200px] items-center justify-center gap-2 rounded-full bg-gradient-to-b from-[var(--color-gold-400)] to-[var(--color-gold-600)] text-base font-black text-white shadow-lg transition-transform hover:scale-105 active:scale-95" href={siteConfig.phoneHref}>
+              <a className="inline-flex h-12 w-full max-w-[200px] items-center justify-center gap-2 rounded-full bg-gradient-to-b from-[var(--color-gold-400)] to-[var(--color-gold-600)] text-base font-black text-white shadow-lg transition-transform hover:scale-105 active:scale-95" data-cta-location="final-cta-button" href={siteConfig.phoneHref}>
                 <Phone size={18} /> Gọi ngay
               </a>
-              <small className="mt-3 block text-xs font-bold text-slate-300">Phục vụ 24/7 • Hỗ trợ nhanh</small>
+              <small className="mt-3 block text-xs font-bold text-slate-300">Gọi/Zalo để kiểm tra chuyến phù hợp</small>
             </div>
           </div>
         </div>

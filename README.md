@@ -33,13 +33,21 @@ npm run build
 
 ## Cấu hình domain
 
-Khi có domain thật, set (trong file `.env`):
+Domain/GTM đang dùng:
 
 ```env
 NEXT_PUBLIC_SITE_URL=https://www.xeghepvuphu.com
+NEXT_PUBLIC_GTM_ID=GTM-WGS4WGQG
 ```
 
 Nếu chưa set, code dùng fallback `https://www.xeghepvuphu.com` cho sitemap/canonical.
+
+GTM đã tạo trong tài khoản `haikieudng@gmail.com`:
+
+- Account: `Nha Xe Vu Phu`
+- Container: `www.xeghepvuphu.com`
+- ID: `GTM-WGS4WGQG`
+- Chi tiết tracking: `plans/gtm-tracking-setup.md`
 
 ## Vị trí sửa nội dung
 
@@ -72,4 +80,3 @@ Các component hiện ở mức baseline, ưu tiên dễ sửa:
 - `src/components/route-card.tsx`
 - `src/components/route-landing-page.tsx`
 - `src/app/page.tsx`
-

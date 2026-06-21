@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CheckCircle2, ThumbsUp, UserRound } from "lucide-react";
 import { socialComments } from "@/data/comments";
 import { siteConfig } from "@/data/site";
@@ -34,38 +34,25 @@ function formatTimeAgo(days: number) {
   return `${day} tháng ${month}, ${year}`;
 }
 
+function buildDynamicComments() {
+  const shuffled = [...socialComments].sort(() => Math.random() - 0.5);
+  let currentDaysAgo = Math.floor(Math.random() * 2) + 1;
+
+  return shuffled.map((comment) => {
+    const timeStr = formatTimeAgo(currentDaysAgo);
+    const replies = comment.replies?.map((reply) => {
+      const replyDaysAgo = Math.max(1, currentDaysAgo - Math.floor(Math.random() * 2));
+      return { ...reply, time: formatTimeAgo(replyDaysAgo) };
+    });
+
+    currentDaysAgo += Math.floor(Math.random() * 4) + 1;
+    return { ...comment, time: timeStr, replies };
+  });
+}
+
 export function SocialCommentsSection() {
   const [visibleCount, setVisibleCount] = useState(5);
-  const [shuffledComments, setShuffledComments] = useState<typeof socialComments>([]);
-
-  useEffect(() => {
-    // 1. Shuffle comments randomly
-    const shuffled = [...socialComments].sort(() => Math.random() - 0.5);
-    
-    // 2. Generate dynamic times spread over days
-    let currentDaysAgo = Math.floor(Math.random() * 2) + 1; // 1 to 2 days ago
-    
-    const dynamicComments = shuffled.map((c) => {
-      const timeStr = formatTimeAgo(currentDaysAgo);
-      
-      let newReplies = c.replies;
-      if (newReplies) {
-        newReplies = newReplies.map((r) => {
-           // Reply happens AFTER the comment, so it is MORE RECENT (fewer days ago)
-           // But ensure it's at least 1 day ago (Hôm qua)
-           const replyDaysAgo = Math.max(1, currentDaysAgo - Math.floor(Math.random() * 2));
-           return { ...r, time: formatTimeAgo(replyDaysAgo) };
-        });
-      }
-      
-      // The next comment downwards should be significantly older (1 to 4 days older)
-      currentDaysAgo += Math.floor(Math.random() * 4) + 1;
-      
-      return { ...c, time: timeStr, replies: newReplies };
-    });
-    
-    setShuffledComments(dynamicComments);
-  }, []);
+  const [shuffledComments] = useState(buildDynamicComments);
 
   if (shuffledComments.length === 0) {
     return (

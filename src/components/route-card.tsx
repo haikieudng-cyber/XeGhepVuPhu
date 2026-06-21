@@ -32,6 +32,8 @@ export function RouteCard({ route }: { route: RouteInfo }) {
       <div className="relative z-10 mt-8 flex items-center gap-3">
         <a 
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-navy-800)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-navy-900)]" 
+          data-cta-location="route-card"
+          data-route={route.slug}
           href={siteConfig.phoneHref}
         >
           Đặt xe ngay

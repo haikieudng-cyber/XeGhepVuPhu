@@ -39,9 +39,9 @@ export function SiteFooter() {
           <h3 className="mb-4 font-heading text-sm font-black uppercase text-[var(--color-navy-950)]">Thông tin liên hệ</h3>
           <ul className="grid gap-3 text-sm font-semibold">
             <li className="flex items-center gap-2"><MapPin size={16} className="text-[var(--color-gold-500)]" /> {siteConfig.location}</li>
-            <li><a href={siteConfig.phoneHref} className="flex items-center gap-2 hover:text-[var(--color-gold-600)]"><Phone size={16} className="text-[var(--color-gold-500)]" /> {siteConfig.phone}</a></li>
+            <li><a href={siteConfig.phoneHref} data-cta-location="footer" className="flex items-center gap-2 hover:text-[var(--color-gold-600)]"><Phone size={16} className="text-[var(--color-gold-500)]" /> {siteConfig.phone}</a></li>
             <li><a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 hover:text-[var(--color-gold-600)]"><Mail size={16} className="text-[var(--color-gold-500)]" /> {siteConfig.email}</a></li>
-            <li className="flex items-center gap-2"><Clock size={16} className="text-[var(--color-gold-500)]" /> Phục vụ 24/7</li>
+            <li className="flex items-center gap-2"><Clock size={16} className="text-[var(--color-gold-500)]" /> Nhận tư vấn đặt xe hằng ngày</li>
           </ul>
         </div>
         
@@ -65,7 +65,7 @@ export function SiteFooter() {
               </span>
             ))}
           </div>
-          <a href={siteConfig.zaloHref} className="mt-4 inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm font-black text-[var(--color-navy-900)] hover:border-[#0068FF] hover:text-[#0068FF]">
+          <a href={siteConfig.zaloHref} data-cta-location="footer" className="mt-4 inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm font-black text-[var(--color-navy-900)] hover:border-[#0068FF] hover:text-[#0068FF]">
             <MessageCircle size={17} />
             Chat qua Zalo
           </a>

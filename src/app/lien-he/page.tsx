@@ -14,7 +14,7 @@ export default function ContactPage() {
     <>
       <div className="bg-[var(--color-navy-900)] pt-16 pb-24 text-center text-white">
         <h1 className="font-heading text-4xl font-bold sm:text-5xl">Liên Hệ Đặt Xe</h1>
-        <p className="mt-4 text-slate-300 max-w-2xl mx-auto">Tổng đài luôn mở 24/7 để tiếp nhận yêu cầu đặt xe ghép, xe tiện chuyến và bao xe của quý khách.</p>
+        <p className="mt-4 text-slate-300 max-w-2xl mx-auto">Nhận tư vấn đặt xe hằng ngày. Gọi/Zalo để kiểm tra chuyến phù hợp, giá và thời gian đón.</p>
       </div>
 
       <Section className="-mt-16 relative z-10">
@@ -22,7 +22,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5 flex flex-col justify-center rounded-2xl bg-[var(--color-gold-400)] p-8 text-white shadow-xl">
             <h2 className="font-heading text-2xl font-bold mb-6">Hotline Trực Tuyến</h2>
             
-            <a href={siteConfig.phoneHref} className="group mb-8 flex flex-col items-center justify-center rounded-xl bg-white/20 p-6 text-center backdrop-blur-sm transition-all hover:bg-white/30">
+            <a href={siteConfig.phoneHref} data-cta-location="contact-page-phone" className="group mb-8 flex flex-col items-center justify-center rounded-xl bg-white/20 p-6 text-center backdrop-blur-sm transition-all hover:bg-white/30">
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white text-[var(--color-gold-500)] shadow-lg group-hover:scale-110 transition-transform">
                 <Phone size={28} />
               </div>
@@ -30,7 +30,7 @@ export default function ContactPage() {
               <p className="mt-2 font-heading text-3xl font-bold">{siteConfig.phone}</p>
             </a>
             
-            <a href={siteConfig.zaloHref} className="group flex flex-col items-center justify-center rounded-xl bg-white/10 p-6 text-center backdrop-blur-sm transition-all hover:bg-[#0068FF]">
+            <a href={siteConfig.zaloHref} data-cta-location="contact-page-zalo" className="group flex flex-col items-center justify-center rounded-xl bg-white/10 p-6 text-center backdrop-blur-sm transition-all hover:bg-[#0068FF]">
               <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white text-[#0068FF] shadow-lg group-hover:scale-110 transition-transform">
                 <MessageCircle size={24} />
               </div>
@@ -69,7 +69,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-900">Giờ làm việc</h3>
-                  <p className="mt-1 text-slate-600">Phục vụ 24/7 kể cả ngày Lễ, Tết.</p>
+                  <p className="mt-1 text-slate-600">Gọi/Zalo để kiểm tra chuyến phù hợp và được nhà xe sắp lịch.</p>
                 </div>
               </div>
             </div>

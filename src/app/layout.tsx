@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { AdsConversionTracker } from "@/components/AdsConversionTracker";
 import { LocalBusinessJsonLd } from "@/components/seo/local-business-json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -33,9 +35,17 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const adsId = process.env.NEXT_PUBLIC_ADS_ID;
+
   return (
     <html lang="vi">
       <body className="font-sans antialiased text-slate-800 bg-slate-50 min-h-screen flex flex-col overflow-x-hidden">
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
+        {gaId && <GoogleAnalytics gaId={gaId} />}
+        {adsId && <GoogleAnalytics gaId={adsId} />}
+        <AdsConversionTracker />
         <LocalBusinessJsonLd />
         <SiteHeader />
         <main className="flex-1">{children}</main>
